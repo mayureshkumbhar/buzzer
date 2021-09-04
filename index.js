@@ -7,6 +7,7 @@ const server = http.Server(app);
 const io = socketio(server);
 
 const title = 'Buffer Buzzer'
+const port = process.env.PORT || 8090
 
 let data = {
   users: new Set(),
@@ -47,4 +48,4 @@ io.on('connection', (socket) => {
   })
 })
 
-server.listen(8090, () => console.log('Listening on 8090'))
+server.listen(port, () => console.log('Server running at port '+port))
